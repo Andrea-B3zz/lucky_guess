@@ -1,1 +1,10 @@
-{{ correctNumber.number }}
+
+<form action="/" method="post">{% csrf_token %}
+    <label for="correctNumber">Number to guess: {{ correctNumber.number }}</label>
+    <br>
+    <input type="submit" value="Try your luck">
+</form>
+<p>Number extracted: {{ numberExtracted }}</p>
+{% if numberExtracted == correctNumber.number %}
+<h1>YOU WIN!!</h1>
+{% endif %}
