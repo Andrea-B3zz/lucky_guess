@@ -1,10 +1,14 @@
-
-<form action="/" method="post">{% csrf_token %}
+{% if numberExtracted != correctNumber.number %}
+<form action="{% url 'newNumber' %}" method="post">{% csrf_token %}
     <label for="correctNumber">Number to guess: {{ correctNumber.number }}</label>
+    <br>
     <br>
     <input type="submit" value="Try your luck">
 </form>
-<p>Number extracted: {{ numberExtracted }}</p>
-{% if numberExtracted == correctNumber.number %}
+{% else %}
 <h1>YOU WIN!!</h1>
+<form action="{% url 'newGame' %}" method="post">{% csrf_token %}
+    <input type="submit" value="Start new Game">
+</form>
 {% endif %}
+<p>Number extracted: {{ numberExtracted }}</p>
