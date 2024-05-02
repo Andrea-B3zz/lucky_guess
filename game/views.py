@@ -24,12 +24,20 @@ def newNumber(request):
      guess.number=value
      guess.correctNumber_id=correct.pk
      guess.save()
-     return render(
+     if guess.number==correct.number:
+         return render(
           request,
-          "game/mainView.html",
+          "game/winningPage.html",
           {'correctNumber': correct,
           'numberExtracted': guess.number}
-     )
+          )
+     else:
+          return render(
+               request,
+               "game/gamePage.html",
+               {'correctNumber': correct,
+               'numberExtracted': guess.number}
+          )
 
 def newGame(request):
      allGuesses=Guesses.objects.all()
@@ -44,6 +52,15 @@ def newGame(request):
 
      return render(
           request,
-          "game/mainView.html",
+          "game/gamePage.html",
           {'correctNumber': correctNumber}
+     )
+
+def start(request):
+     correct = CorrectNumber.objects.order_by("-id")[:1]
+     correct=correct[0]
+     return render(
+          request,
+          "game/gamePage.html",
+          {'correctNumber': correct}
      )

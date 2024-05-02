@@ -1,0 +1,14 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<div class="position-static">
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <label for="correctNumber">Number to guess: {{ correctNumber.number }}</label>
+        <p>Number extracted: {{ numberExtracted }}</p>
+        <h1>YOU WIN!!</h1>
+        <h3></h3>
+        <form action="{% url 'newGame' %}" method="post">{% csrf_token %}
+            <input type="submit" class="btn btn-success" value="Start new Game">
+        </form>
+    </div>
+</div>
