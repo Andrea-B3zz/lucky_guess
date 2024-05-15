@@ -1,15 +1,22 @@
 import math
 from random import random
 from django.shortcuts import render
-
 from .models import Guesses, CorrectNumber
 
-# Create your views here.
 def newNumber(request):
      correct = CorrectNumber.objects.order_by("-id")[:1]
      correct=correct[0]
-     test=True
 
+     if correct.guessed==True:
+          return render(
+          request,
+          "game/startPage.html"
+     )
+
+     correct.numberOfGuesses+=1
+     correct.save()
+
+     test=True
      allGuesses=Guesses.objects.filter(correctNumber_id=correct.pk)
      while test:
           test=False
@@ -24,7 +31,10 @@ def newNumber(request):
      guess.number=value
      guess.correctNumber_id=correct.pk
      guess.save()
+
      if guess.number==correct.number:
+         correct.guessed=True
+         correct.save()
          return render(
           request,
           "game/winningPage.html",
@@ -40,6 +50,14 @@ def newNumber(request):
           )
 
 def newGame(request):
+     correct = CorrectNumber.objects.order_by("-id")[:1]
+     correct=correct[0]
+     if(correct.numberOfGuesses==0):
+          return render(
+          request,
+          "game/gamePage.html",
+          {'correctNumber': correct}
+     )
      allGuesses=Guesses.objects.all()
      allGuesses.delete()
      correctNumber = CorrectNumber()
@@ -48,7 +66,6 @@ def newGame(request):
      value = math.floor(1 + (numberGenerator * correctNumber.maxNumber))
      correctNumber.number=value
      correctNumber.save()
-     print("Ciao")
 
      return render(
           request,
@@ -58,9 +75,15 @@ def newGame(request):
 
 def start(request):
      correct = CorrectNumber.objects.order_by("-id")[:1]
-     correct=correct[0]
+     if len(correct)!=0:
+          correct=correct[0]
+          if(correct.guessed==False):
+               return render(
+                    request,
+                    "game/gamePage.html",
+                    {'correctNumber': correct}
+               )
      return render(
           request,
-          "game/gamePage.html",
-          {'correctNumber': correct}
+          "game/startPage.html"
      )

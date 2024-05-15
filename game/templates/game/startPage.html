@@ -1,0 +1,15 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<div class="position-static">
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <label for="correctNumber">Looks like no one has started a game</label>
+        <br>
+        <br>
+        <p>Click here to start</p>
+        <br>
+        <form action="{% url 'newGame' %}" method="post">{% csrf_token %}
+            <input type="submit" class="btn btn-primary" value="Start the game">
+        </form>
+    </div>
+</div>
