@@ -1,0 +1,37 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa; /* Light grey background */
+}
+
+.content {
+    padding: 20px;
+    border: 1px solid #dee2e6; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #ffffff; /* White background */
+    text-align: center; /* Center text */
+}
+
+label {
+    font-size: 1.2em; /* Larger font size for label */
+    font-weight: bold; /* Bold font for label */
+    margin-bottom: 10px; /* Space below the label */
+}
+
+form {
+    margin: 20px 0; /* Space around the form */
+}
+
+p {
+    font-size: 1em; /* Normal font size for extracted number */
+    color: #6c757d; /* Grey color for text */
+}
+
+.btn {
+    padding: 10px 20px; /* Larger button padding */
+    font-size: 1em; /* Larger font size for button */
+    border-radius: 5px; /* Rounded button corners */
+}

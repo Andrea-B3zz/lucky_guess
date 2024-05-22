@@ -1,8 +1,12 @@
 {% load bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-<div class="position-static">
-    <div class="position-absolute top-50 start-50 translate-middle">
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'game/style.css' %}">
+
+<div class="position-static container">
+    <div class="position-absolute top-50 start-50 translate-middle content">
         <label for="correctNumber">Number to guess: {{ correctNumber.number }}</label>
         <p>Number extracted: {{ numberExtracted }}</p>
         <h1>YOU WIN!!</h1>
