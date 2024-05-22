@@ -1,10 +1,6 @@
-{% load bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-{% load static %}
+{% extends "base.html" %}
 
-<link rel="stylesheet" href="{% static 'game/style.css' %}">
-
+{% block content %}
 <div class="position-static container">
     <div class="position-absolute top-50 start-50 translate-middle content">
         <label for="correctNumber">Looks like no one has started a game</label>
@@ -17,3 +13,4 @@
         </form>
     </div>
 </div>
+{% endblock content %}

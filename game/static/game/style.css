@@ -1,37 +1,104 @@
 .container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f9fa; /* Light grey background */
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically (optional) */
 }
 
 .content {
     padding: 20px;
-    border: 1px solid #dee2e6; /* Light border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    background-color: #ffffff; /* White background */
-    text-align: center; /* Center text */
+    border: 1px solid #dee2e6;
+    /* Light border */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    background-color: #ffffff;
+    /* White background */
+    text-align: center;
+    /* Center text */
 }
 
 label {
-    font-size: 1.2em; /* Larger font size for label */
-    font-weight: bold; /* Bold font for label */
-    margin-bottom: 10px; /* Space below the label */
+    font-size: 1.2em;
+    /* Larger font size for label */
+    font-weight: bold;
+    /* Bold font for label */
+    margin-bottom: 10px;
+    /* Space below the label */
 }
 
 form {
-    margin: 20px 0; /* Space around the form */
+    margin: 20px 0;
+    /* Space around the form */
 }
 
 p {
-    font-size: 1em; /* Normal font size for extracted number */
-    color: #6c757d; /* Grey color for text */
+    font-size: 1em;
+    /* Normal font size for extracted number */
+    color: #6c757d;
+    /* Grey color for text */
 }
 
 .btn {
-    padding: 10px 20px; /* Larger button padding */
-    font-size: 1em; /* Larger font size for button */
-    border-radius: 5px; /* Rounded button corners */
+    padding: 10px 20px;
+    /* Larger button padding */
+    font-size: 1em;
+    /* Larger font size for button */
+    border-radius: 5px;
+    /* Rounded button corners */
 }
+
+.navBar {
+    width: 100%;
+    background-color: #f8f9fa;
+    /* Light grey background */
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* Ensure the navbar is above other content */
+    display: flex;
+    justify-content: flex-end;
+    /* Align items to the right */
+}
+
+.navBtn {
+    padding: 10px 20px;
+    /* Larger button padding */
+    background-color: #007bff;
+    /* Primary blue color */
+    color: white;
+    /* White text */
+    text-decoration: none;
+    /* Remove underline */
+    border-radius: 5px;
+    /* Rounded corners */
+    transition: background-color 0.3s ease;
+    /* Smooth background change on hover */
+}
+
+.navBtn:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.side {
+    flex: 1;
+    padding: 20px;
+    display: flex; /* Make the side a flex container */
+    flex-direction: column; /* Arrange content vertically */
+    align-items: flex-start; /* Align content to the left side */
+  }
+  
+  .side label {
+    margin-bottom: 10px; /* Maintain spacing below the label */
+  }
+  
+  .divider {
+    width: 1px;
+    background-color: #dee2e6; /* Light grey color for the bar */
+  }

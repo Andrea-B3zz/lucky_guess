@@ -1,0 +1,26 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="{% static 'game/style.css' %}">
+
+<head>
+    <title>Lucky guess</title>
+</head>
+
+<body>
+    <div class="navBar">
+        {% if user.is_authenticated %}
+        <a href="/accounts/logout" class="btn navBtn">Logout</a>
+        {% else %}
+        <a href="/accounts/login" class="btn navBtn">Login</a>
+        {% endif %}
+    </div>
+    {% block content %}{% endblock content %}
+</body>
+
+</html>
